@@ -3,7 +3,7 @@ import csv
 import random
 from collections import Counter
 
-# Load previous winning numbers
+# Load previous winning numbers from mega millions
 def load_past_draws(filename):
     white_balls = []
     mega_balls = []
@@ -14,7 +14,7 @@ def load_past_draws(filename):
             mega_balls.append(int(row['MegaBall']))
     return white_balls, mega_balls
 
-# Generate numbers based on frequency
+# Generate numbers based on frequency on mega millions
 def generate_likely_numbers(white_balls, mega_balls):
     # Get top 15 frequent white balls and top 5 Mega Balls
     top_white = [num for num, _ in Counter(white_balls).most_common(15)]
@@ -29,8 +29,12 @@ def generate_likely_numbers(white_balls, mega_balls):
 def main():
     filename = 'mega_millions.csv'  # Path to your file
     white_balls, mega_balls = load_past_draws(filename)
-    white, mega = generate_likely_numbers(white_balls, mega_balls)
-    print(f"Your Mega Millions pick: {white} + Mega Ball: {mega}")
+    
+    attempts = 0
+    while attempts < 5:
+        white, mega = generate_likely_numbers(white_balls, mega_balls)
+        print(f"Your Mega Millions pick: {white} + Mega Ball: {mega}")
+        attempts += 1
 
 if __name__ == '__main__':
     main()

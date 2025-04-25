@@ -7,6 +7,8 @@ class LotteryData:
         self.filename = filename
         self.white_balls = []
         self.mega_balls = []
+        self.power_balls = [] # TODO: Implement Power Ball functionality
+        self.super_balls = [] # TODO: Implement SuperLotto functionality
 
     def load_past_draws(self):
         with open(self.filename, newline='') as csvfile:

@@ -51,8 +51,8 @@ class LotteryGenerator:
         self.special_balls = special_balls
 
     def generate_numbers(self):
-        top_white = [num for num, _ in Counter(self.white_balls).most_common(15)]
-        top_special = [num for num, _ in Counter(self.special_balls).most_common(5)]
+        top_white = [num for num, _ in Counter(self.white_balls).most_common(20)]
+        top_special = [num for num, _ in Counter(self.special_balls).most_common(10)]
 
         chosen_white = sorted(random.sample(top_white, 5))
         chosen_special = random.choice(top_special)

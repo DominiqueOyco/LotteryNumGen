@@ -31,7 +31,7 @@ class LotteryData:
                         else:
                             raise ValueError("Unsupported file format.")
                     except (ValueError, KeyError) as e:
-                        print(f"Skipping invalid row: {row}. Error: {e}")
+                        print(f"Skipping invalid row:  {row}. Error: {e}")
                 
                 if not self.white_balls:
                     raise ValueError("The file does not contain valid lottery data.")
